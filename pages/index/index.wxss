@@ -1,10 +1,91 @@
-/**index.wxss**/
-page {
-  height: 100vh;
+.container {
   display: flex;
   flex-direction: column;
+  padding: 20rpx;
+  background-color: #f9f9f9;
+  min-height: 100vh;
 }
-.scrollarea {
+
+/* 顶部目标卡片 */
+.goal-card {
+  background: #ffffff;
+  padding: 30rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+  margin-bottom: 30rpx;
+}
+.goal-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333333;
+}
+.goal-deadline {
+  font-size: 26rpx;
+  color: #888888;
+  margin-top: 10rpx;
+}
+
+/* 里程碑进度 */
+.milestone-section {
+  background: #ffffff;
+  padding: 20rpx;
+  border-radius: 20rpx;
+  margin-bottom: 30rpx;
+}
+.section-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+  color: #444444;
+}
+.milestone-item {
+  margin-bottom: 20rpx;
+}
+.milestone-title {
+  font-size: 26rpx;
+  color: #666666;
+  margin-bottom: 10rpx;
+}
+
+/* 今日任务 */
+.task-section {
+  background: #ffffff;
+  padding: 20rpx;
+  border-radius: 20rpx;
+  margin-bottom: 30rpx;
+}
+.task-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.task-title {
   flex: 1;
-  overflow-y: hidden;
+  font-size: 28rpx;
+  margin-left: 10rpx;
+}
+.task-title.done {
+  text-decoration: line-through;
+  color: #aaaaaa;
+}
+.task-time {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+/* 悬浮按钮 */
+.fab {
+  position: fixed;
+  bottom: 80rpx;
+  right: 40rpx;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background-color: #4CAF50;
+  color: #fff;
+  font-size: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8rpx 16rpx rgba(0, 0, 0, 0.2);
 }
