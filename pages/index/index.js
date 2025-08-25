@@ -27,11 +27,8 @@ Page({
 
   // 添加记录
   addRecord() {
-    wx.showToast({
-      title: '进入记录页面',
-      icon: 'none'
-    })
-    // 可以跳转到 addRecord 页面
-    // wx.navigateTo({ url: '/pages/addRecord/addRecord' })
+
+    //跳转到 addRecord 页面
+    wx.navigateTo({ url: '/pages/addRecord/index' })
   }
 })

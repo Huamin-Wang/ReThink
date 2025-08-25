@@ -1,0 +1,34 @@
+/* pages/addRecord/life.wxss */
+
+/* 顶部状态栏留白 */
+.status-bar {
+  height: 32rpx;
+  width: 100%;
+  background: #f8f8f8;
+}
+
+/* 自定义导航栏 */
+.nav-bar {
+  display: flex;
+  align-items: center;
+  height: 88rpx;
+  background: #ffffff;
+  border-bottom: 1rpx solid #f0f0f0;
+  padding-left: 24rpx;
+  box-sizing: border-box;
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #222;
+  z-index: 10;
+}
+
+.back-icon {
+  font-size: 40rpx;
+  color: #007aff;
+  margin-right: 12rpx;
+}
+
+.back-text {
+  font-size: 32rpx;
+  color: #007aff;
+}

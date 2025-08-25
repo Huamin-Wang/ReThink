@@ -1,0 +1,7 @@
+<!--pages/addRecord/life.wxml-->
+<view class="status-bar"></view>
+<view class="nav-bar" bindtap="onBack">
+  <text class="back-icon">←</text>
+  <text class="back-text">返回</text>
+</view>
+<text>pages/dataEdit/life.wxml</text>

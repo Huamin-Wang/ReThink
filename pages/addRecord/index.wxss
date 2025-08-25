@@ -1,0 +1,51 @@
+/* pages/addRecord/index.wxss */
+
+/* 顶部状态栏留白 */
+.status-bar {
+    height: 32rpx;
+    width: 100%;
+    background: #f8f8f8;
+}
+
+.float-back-btn {
+    top: 100rpx;
+    position: fixed;
+    left: 32rpx;
+    width: 88rpx;
+    height: 88rpx;
+    background: #38f9d7;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(56, 249, 215, 0.2);
+    font-size: 40rpx;
+    z-index: 999;
+}
+
+/* 自定义导航栏 */
+.nav-bar {
+    display: flex;
+    align-items: center;
+    height: 88rpx;
+    background: #ffffff;
+    border-bottom: 1rpx solid #f0f0f0;
+    padding-left: 24rpx;
+    box-sizing: border-box;
+    font-size: 32rpx;
+    font-weight: 500;
+    color: #222;
+    z-index: 10;
+}
+
+.back-icon {
+    font-size: 40rpx;
+    color: #007aff;
+    margin-right: 12rpx;
+}
+
+.back-text {
+    font-size: 32rpx;
+    color: #007aff;
+}

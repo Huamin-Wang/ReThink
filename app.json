@@ -1,6 +1,8 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/addRecord/life",
+    "pages/addRecord/index"
   ],
   "window": {
     "navigationBarTextStyle": "black",
