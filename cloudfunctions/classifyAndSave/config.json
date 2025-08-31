@@ -1,0 +1,7 @@
+{
+  "name": "classify",
+  "timeout": 60,
+  "memorySize": 128,
+  "runtime": "Nodejs12.16"
+}
+

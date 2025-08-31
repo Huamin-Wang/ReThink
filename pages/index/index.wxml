@@ -6,6 +6,10 @@
 </view>
 <view class="container">
 
+    <view class="dev-tip" style="background:#fffbe6;color:#ad8b00;padding:8px 16px;border-radius:8px;margin:16px 0;text-align:center;font-size:14px;">
+        🚧 本页面开发中，功能持续完善中...
+    </view>
+
     <!-- 顶部：长期目标 -->
     <view class="goal-card">
         <text class="goal-title">{{mainGoal.title}}</text>

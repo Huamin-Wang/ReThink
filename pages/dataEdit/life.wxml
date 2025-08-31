@@ -1,7 +1,0 @@
- <!-- 个人数据填报区 -->
- <view class="data-section">
-       <!-- 生活数据 -->
-       <view class="life-data">
-           <button class="life-btn">生活花销</button>
-       </view>
-   </view>

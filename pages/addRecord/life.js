@@ -1,73 +1,62 @@
 // pages/addRecord/life.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    desc: '',
+    records: [],
+    categorySums: {}
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
-
+  onLoad() {
+    this.fetchRecords()
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
+  // 获取消费记录
+  fetchRecords() {
+    wx.showLoading({ title: '加载中...', mask: true })
+    wx.cloud.callFunction({
+      name: 'getAllExpense_records',
+      data: { pageNum: 1, pageSize: 50 }
+    }).then(res => {
+      wx.hideLoading()
+      if (res.result && res.result.success) {
+        this.setData({
+          records: res.result.data || [],
+          categorySums: res.result.categorySums || {}
+        })
+      } else {
+        wx.showToast({ title: '数据获取失败', icon: 'none' })
+      }
+    }).catch(() => {
+      wx.hideLoading()
+      wx.showToast({ title: '数据获取失败', icon: 'none' })
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
+  // 输入监听
+  onDescInput(e) {
+    this.setData({ desc: e.detail.value.trim() })
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
+  // 提交生活记录
+  submitLifeRecord() {
+    const { desc } = this.data
+    if (!desc) {
+      wx.showToast({ title: '请输入生活记录内容', icon: 'none' })
+      return
+    }
 
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
-  },
-
-  /**
-   * 返回上一页
-   */
-  onBack() {
-    wx.navigateBack();
+    wx.showLoading({ title: '提交中...', mask: true })
+    wx.cloud.callFunction({
+      name: 'classifyAndSave',
+      data: { description: desc }
+    }).then(() => {
+      wx.hideLoading()
+      wx.showToast({ title: '提交成功', icon: 'success' })
+      this.setData({ desc: '' })
+      this.fetchRecords() // 提交成功后刷新数据
+    }).catch(() => {
+      wx.hideLoading()
+      wx.showToast({ title: '提交失败', icon: 'none' })
+    })
   }
 })

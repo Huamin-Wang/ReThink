@@ -16,8 +16,13 @@ Page({
       { title: "跑步 5 公里", estimateMin: 40, status: "todo" }
     ]
   },
-
-  // 切换任务状态
+onLoad(query) {
+      //直接跳转到life页面
+      wx.navigateTo({
+        url: '/pages/addRecord/life'
+      });
+},
+    // 切换任务状态
   toggleTask(e) {
     const index = e.currentTarget.dataset.index
     let tasks = this.data.tasks
@@ -30,5 +35,6 @@ Page({
 
     //跳转到 addRecord 页面
     wx.navigateTo({ url: '/pages/addRecord/index' })
-  }
+  },
+
 })
