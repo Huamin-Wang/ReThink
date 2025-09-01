@@ -1,10 +1,9 @@
 <view class="status-bar"
       style="height: 100px; background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%); display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(67,233,123,0.15); border-radius: 0 0 18px 18px;">
+    <text style="color: #fff; font-size: 20px; font-weight: bold; letter-spacing: 1px; text-shadow: 0 1px 4px rgba(0,0,0,0.08);margin-top: 40px">
+        一句话记录账单
+    </text>
 </view>
-
-<!-- 渐变分割线 -->
-<view style="height: 4px; background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%); margin: 0 24rpx 24rpx 24rpx; border-radius: 2px;"></view>
-
 <!-- 页面主内容 -->
 <view class="main-content">
 
@@ -23,8 +22,8 @@
 
   <!-- 输入卡片 -->
   <view class="card">
-    <view class="title">记录生活花销</view>
-    <view class="sub-title">如：超市购物花了68元</view>
+    <view class="title">一句话记录生活花销</view>
+    <view class="sub-title">如：超市购物花了68元，吃饭花了200</view>
     <view class="input-box">
       <input name="desc" type="text" confirm-type="done"
              placeholder="请输入描述"
