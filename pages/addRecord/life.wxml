@@ -5,7 +5,7 @@
     </text>
 </view>
 <!-- 页面主内容 -->
-<view class="main-content">
+<view class="main-content" bindtap="closeAll">
 
   <!-- 分类汇总卡片 -->
   <view class="card">
