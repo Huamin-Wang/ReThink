@@ -13,7 +13,7 @@ Page({
   },
 onShareAppMessage(options) {
     return {
-      title: '一句话智能记账，解放双手，轻松记账！',
+      title: '一句话智能记账，无需手动分类，解放双手，轻松记账！',
       path: '/pages/addRecord/life/pie',
     }
 },
