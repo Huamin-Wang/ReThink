@@ -3,8 +3,8 @@
   <text class="status-title">一句话记录账单</text>
 </view>
 
-<!-- 分类导航（紧贴 status-bar） -->
-<scroll-view class="nav-bar" scroll-x="true" show-scrollbar="false">
+<!-- 分类导航容器 -->
+<view class="nav-container">
   <block wx:for="{{categories}}" wx:key="index">
     <view
       class="nav-item {{activeIndex === index ? 'active' : ''}}"
@@ -13,11 +13,11 @@
       {{item}}
     </view>
   </block>
-</scroll-view>
+</view>
 
 <!-- 内容区域 -->
-<view class="content">
+<scroll-view class="content" scroll-y="true" style="height: 100vh;">
   <record wx:if="{{activeIndex === 0}}" />
   <income wx:if="{{activeIndex === 1}}" />
   <outcome wx:if="{{activeIndex === 2}}" />
-</view>
+</scroll-view>

@@ -34,19 +34,10 @@
     <view class="title">消费明细</view>
 <block wx:for="{{records}}" wx:key="_id">
   <movable-area class="record-area">
-    <movable-view
-      class="record-movable"
-      direction="horizontal"
-      out-of-bounds="true"
-      damping="50"
-      x="{{item.x || 0}}"
-      data-id="{{item._id}}"
-      bindchange="onMoveChange"
-      bindtouchend="onTouchEnd"
-    >
+
       <!-- 主体内容 + 删除按钮一起放 -->
       <view class="record-wrapper">
-        <view class="record-card">
+        <view class="record-card" bindtap="showDeleteBtn" data-id="{{item._id}}">
           <view class="record-main">
             <view class="desc">{{item.description}}</view>
             <view class="amount" style="color:{{item.amount>0?'red':'#43e97b'}}">¥{{item.amount}}</view>
@@ -58,12 +49,12 @@
         </view>
 
         <!-- 删除按钮 -->
-       <view class="delete-btn" catchtap="onDelete" data-id="{{item._id}}">
+  <view wx:if="{{showDeleteId === item._id}}" class="delete-btn" catchtap="onDelete" data-id="{{item._id}}">
   删除
 </view>
 
       </view>
-    </movable-view>
+
   </movable-area>
 </block>
 
