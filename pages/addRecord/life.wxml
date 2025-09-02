@@ -14,7 +14,7 @@
       <block wx:for="{{categorySums}}" wx:key="_id">
         <view class="summary-item">
           <text class="category">{{item._id}}</text>
-          <text class="amount">¥{{item.sum}}</text>
+          <text class="amount" style="color: {{item.sum > 0 ? 'red' : '#43e97b'}};">¥{{item.sum}}</text>
         </view>
       </block>
     </view>
@@ -54,7 +54,7 @@
         <view class="record-card">
           <view class="record-main">
             <view class="desc">{{item.description}}</view>
-            <view class="amount">¥{{item.amount}}</view>
+            <view class="amount" style="color:{{item.amount>0?'red':'#43e97b'}}">¥{{item.amount}}</view>
           </view>
           <view class="record-meta">
             <text class="category-tag">{{item.category}}</text>
