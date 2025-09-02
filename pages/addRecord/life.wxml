@@ -22,8 +22,8 @@
 
   <!-- 输入卡片 -->
   <view class="card">
-    <view class="title">一句话记录生活花销</view>
-    <view class="sub-title">如：超市购物花了68元，吃饭花了200</view>
+    <view class="title">随口一句话记录生活收支</view>
+    <view class="sub-title">如：超市购物花了68元，吃饭花了200,基金赚了200</view>
     <view class="input-box">
       <input name="desc" type="text" confirm-type="done"
              placeholder="请输入描述"
