@@ -1,8 +1,10 @@
 {
   "pages": [
+    "pages/addRecord/life/pie",
     "pages/addRecord/life",
     "pages/addRecord/index",
-    "pages/index/index"
+    "pages/index/index",
+    "components/record/record"
   ],
   "window": {
     "navigationBarTextStyle": "black",

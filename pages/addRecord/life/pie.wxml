@@ -1,0 +1,23 @@
+<!-- 顶部状态栏 -->
+<view class="status-bar" style="padding-top: {{statusBarHeight}}px;">
+  <text class="status-title">一句话记录账单</text>
+</view>
+
+<!-- 分类导航（紧贴 status-bar） -->
+<scroll-view class="nav-bar" scroll-x="true" show-scrollbar="false">
+  <block wx:for="{{categories}}" wx:key="index">
+    <view
+      class="nav-item {{activeIndex === index ? 'active' : ''}}"
+      bindtap="onNavTap"
+      data-index="{{index}}">
+      {{item}}
+    </view>
+  </block>
+</scroll-view>
+
+<!-- 内容区域 -->
+<view class="content">
+  <record wx:if="{{activeIndex === 0}}" />
+  <phone wx:if="{{activeIndex === 1}}" />
+  <appliance wx:if="{{activeIndex === 2}}" />
+</view>

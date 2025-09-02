@@ -1,9 +1,4 @@
-<view class="status-bar"
-      style="height: 100px; background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%); display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(67,233,123,0.15); border-radius: 0 0 18px 18px;">
-    <text style="color: #fff; font-size: 20px; font-weight: bold; letter-spacing: 1px; text-shadow: 0 1px 4px rgba(0,0,0,0.08);margin-top: 40px">
-        一句话记录账单
-    </text>
-</view>
+
 <!-- 页面主内容 -->
 <view class="main-content" bindtap="closeAll">
   <!-- 分类汇总卡片 -->
@@ -18,7 +13,7 @@
       </block>
     </view>
   </view>
-  
+
 
   <!-- 输入卡片 -->
   <view class="card">

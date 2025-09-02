@@ -1,0 +1,49 @@
+/* 顶部渐变状态栏，自适应高度 */
+.status-bar {
+  background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4rpx 12rpx rgba(67, 233, 123, 0.2);
+  border-radius: 0 0 24rpx 24rpx;
+  padding-bottom: 20rpx;
+}
+
+.status-title {
+  color: #fff;
+  font-size: 34rpx;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.15);
+}
+
+/* 分类导航紧贴 status-bar */
+.nav-bar {
+  white-space: nowrap;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  padding: 10rpx 0;
+}
+
+.nav-item {
+  display: inline-block;
+  padding: 20rpx 36rpx;
+  font-size: 28rpx;
+  color: #555;
+  transition: all 0.3s;
+}
+
+.nav-item.active {
+  color: #e93b3d;
+  font-weight: bold;
+  border-bottom: 6rpx solid #e93b3d;
+}
+
+/* 内容区 */
+.content {
+  flex: 1;
+  padding: 30rpx;
+  background: #fff;
+  border-radius: 24rpx 24rpx 0 0;
+  box-shadow: 0 -4rpx 10rpx rgba(0, 0, 0, 0.05);
+}

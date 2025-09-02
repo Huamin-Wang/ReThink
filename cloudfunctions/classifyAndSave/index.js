@@ -60,7 +60,7 @@ exports.main = async (event) => {
     // 分类列表
     const categoryList = categories && categories.length > 0
         ? categories
-        : ['餐饮', '交通', '购物', '娱乐', '其他', '住房', '医疗', '教育', '旅行', '人情', '工资', '理财收益']
+        : ['餐饮', '交通', '购物', '娱乐', '其他收入',"其他支出", '住房', '医疗', '教育', '旅行', '人情', '工资', '理财收益']
 
     if (!description) {
         return {success: false, error: '缺少 description'}
@@ -68,7 +68,7 @@ exports.main = async (event) => {
 
     try {
         // 构造提示词，要求返回数组
-        const prompt = `你是消费分类助手。请根据用户的消费描述，从以下类别中选择最合适的分类，并提取金额，其中支出为负。
+        const prompt = `你是消费分类助手。请根据用户的消费描述，严格从以下类别中选择最合适的分类（不要自己增加其他类别），并提取金额，其中支出为负。
 严格返回 JSON 数组格式，例如：
 [{"category":"餐饮","amount":-200,"description":"昨天吃火锅","type":"支出"},
 {"category":"交通","amount":-30,"description":"今天打车","type":"支出"},
