@@ -11,8 +11,13 @@ Page({
       statusBarHeight: systemInfo.statusBarHeight // 适配不同手机安全区
     })
   },
-
-  onNavTap(e) {
+onShareAppMessage(options) {
+    return {
+      title: '一句话智能记账，解放双手，轻松记账！',
+      path: '/pages/addRecord/life/pie',
+    }
+},
+    onNavTap(e) {
     this.setData({
       activeIndex: e.currentTarget.dataset.index
     })

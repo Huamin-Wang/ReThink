@@ -1,10 +1,10 @@
 {
   "pages": [
     "pages/addRecord/life/pie",
-    "pages/addRecord/life",
     "pages/addRecord/index",
     "pages/index/index",
-    "components/record/record"
+    "components/record/record",
+    "components/income/income"
   ],
   "window": {
     "navigationBarTextStyle": "black",

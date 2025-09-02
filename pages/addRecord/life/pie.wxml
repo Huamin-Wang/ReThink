@@ -18,6 +18,6 @@
 <!-- 内容区域 -->
 <view class="content">
   <record wx:if="{{activeIndex === 0}}" />
-  <phone wx:if="{{activeIndex === 1}}" />
-  <appliance wx:if="{{activeIndex === 2}}" />
+  <income wx:if="{{activeIndex === 1}}" />
+  <outcome wx:if="{{activeIndex === 2}}" />
 </view>

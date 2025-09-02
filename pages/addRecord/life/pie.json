@@ -1,5 +1,7 @@
 {
   "usingComponents": {
-    "record": "/components/record/record"
+    "record": "/components/record/record",
+    "income": "/components/income/income",
+    "outcome": "/components/outcome/outcome"
   }
 }
