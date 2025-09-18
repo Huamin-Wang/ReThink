@@ -8,13 +8,13 @@ Component({
         records: [],
         categorySums: {},
         showDeleteId: null,
-
     },
 
     lifetimes: {
         attached() {
             // 组件挂载到页面时获取数据
             this.fetchRecords()
+
         }
     },
 
@@ -25,7 +25,11 @@ Component({
                 showDeleteId: id
             });
         },
-
+        closeAll() {
+            this.setData({
+                showDeleteId: null
+            });
+        },
       // 点击删除
       onDelete(e) {
           const id = e.currentTarget.dataset.id;
@@ -51,6 +55,7 @@ Component({
                           wx.hideLoading()
                           if (res.result && res.result.success) {
                               wx.showToast({title: '删除成功', icon: 'success'})
+                              wx.setStorageSync('recordChange', true)
                               this.fetchRecords()
                           } else {
                               wx.showToast({title: '删除失败', icon: 'none'})
@@ -67,31 +72,52 @@ Component({
       },
 
 
-        // 获取消费记录
-        fetchRecords() {
-            wx.showLoading({title: '加载中...', mask: true})
-            wx.cloud.callFunction({
-                name: 'getAllExpense_records',
-                data: {pageNum: 1, pageSize: 50}
-            }).then(res => {
-                wx.hideLoading()
-                if (res.result && res.result.success) {
-                    this.setData({
-                        records: (res.result.data || []).map(item => ({
-                            ...item,
-                            date: item.date ? tool.formatDate(item.date) : '',
-                            x: 0 // 初始化时保证删除按钮隐藏
-                        })),
-                        categorySums: res.result.categorySums || {}
-                    })
-                } else {
-                    wx.showToast({title: '数据获取失败', icon: 'none'})
-                }
-            }).catch(() => {
-                wx.hideLoading()
-                wx.showToast({title: '数据获取失败', icon: 'none'})
-            })
-        },
+      // 获取消费记录
+      fetchRecords() {
+          const localRecords = wx.getStorageSync('expenseRecords')
+          const localCategorySums = wx.getStorageSync('categorySums')
+         let recordChange = wx.getStorageSync('recordChange')
+          if (typeof recordChange !== 'boolean') {
+              recordChange = true
+          }
+          console.log("recordChange",recordChange)
+          if (!(recordChange)) {
+              this.setData({
+                  records: localRecords,
+                  categorySums: localCategorySums
+              })
+              return
+          }
+
+          wx.showLoading({title: '加载中...', mask: true})
+          wx.cloud.callFunction({
+              name: 'getAllExpense_records',
+              data: {pageNum: 1, pageSize: 50}
+          }).then(res => {
+              wx.hideLoading()
+              if (res.result && res.result.success) {
+                  const records = (res.result.data || []).map(item => ({
+                      ...item,
+                      date: item.date ? tool.formatDate(item.date) : '',
+                      x: 0
+                  }))
+                  const categorySums = res.result.categorySums || {}
+                  this.setData({
+                      records,
+                      categorySums
+                  })
+                  wx.setStorageSync('expenseRecords', records)
+                  wx.setStorageSync('categorySums', categorySums)
+                  // 重置状态
+                  wx.setStorageSync('recordChange', false)
+              } else {
+                  wx.showToast({title: '数据获取失败', icon: 'none'})
+              }
+          }).catch(() => {
+              wx.hideLoading()
+              wx.showToast({title: '数据获取失败', icon: 'none'})
+          })
+      },
 
         // 输入监听
         onDescInput(e) {
@@ -100,6 +126,8 @@ Component({
 
         // 提交生活记录
         submitLifeRecord() {
+            //数据更改标记
+          wx.setStorageSync('recordChange', true)
             const {desc} = this.data
             if (!desc) {
                 wx.showToast({title: '请输入生活记录内容', icon: 'none'})

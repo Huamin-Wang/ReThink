@@ -1,6 +1,6 @@
 Page({
   data: {
-    categories: ['记账', '收入', '支出'],
+    categories:    ['记账'],//['记账', '收入', '支出'],
     activeIndex: 0,
     statusBarHeight: 20 // 默认值，避免加载时闪烁
   },

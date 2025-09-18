@@ -42,7 +42,7 @@
 /* 内容区 */
 .content {
   flex: 1;
-  padding: 30rpx;
+
   background: #fff;
   border-radius: 24rpx 24rpx 0 0;
   box-shadow: 0 -4rpx 10rpx rgba(0, 0, 0, 0.05);

@@ -37,7 +37,7 @@
 
       <!-- 主体内容 + 删除按钮一起放 -->
       <view class="record-wrapper">
-        <view class="record-card" bindtap="showDeleteBtn" data-id="{{item._id}}">
+        <view class="record-card" catchtap="showDeleteBtn" data-id="{{item._id}}">
           <view class="record-main">
             <view class="desc">{{item.description}}</view>
             <view class="amount" style="color:{{item.amount>0?'red':'#43e97b'}}">¥{{item.amount}}</view>
